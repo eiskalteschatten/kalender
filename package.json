@@ -1,0 +1,36 @@
+{
+  "name": "kalender",
+  "version": "1.0.0",
+  "description": "A project that generates custom templates for planners",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm run lint",
+    "lint": "eslint './src/**/*.{ts,js,json}'",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eiskalteschatten/kalender.git"
+  },
+  "author": "Alex Seifert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eiskalteschatten/kalender/issues"
+  },
+  "homepage": "https://github.com/eiskalteschatten/kalender#readme",
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "@typescript-eslint/eslint-plugin": "^1.12.0",
+    "@typescript-eslint/parser": "^1.12.0",
+    "eslint": "^6.0.1",
+    "husky": "^3.0.0",
+    "typescript": "^3.5.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
+  }
+}
