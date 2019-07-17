@@ -50,6 +50,7 @@ module.exports = {
     ],
     "@typescript-eslint/no-angle-bracket-type-assertion": ["off"],
     "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/explicit-member-accessibility": ["off"],
     "@typescript-eslint/indent": ["error", 2]
   },
   "overrides": [{

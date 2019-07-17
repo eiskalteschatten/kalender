@@ -15,7 +15,7 @@ class Renderer {
     this.writePath = path.resolve(os.tmpdir());
   }
 
-  render() {
+  render(): void {
     const renderedCalendar = this.nunjucksEnv.render('calendar.njk', { username: 'James' });
     const renderedRightside = this.nunjucksEnv.render('rightSide.njk', { username: 'James' });
 
