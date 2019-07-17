@@ -4,18 +4,20 @@ module.exports = {
   locale: 'en-GB',
   startDate: '2020-01-01',
   endDate: '2020-12-31',
+
+  dates: {
+    '07-17': [
+      'Birthday'
+    ]
+  },
+
   // For more options, see https://momentjs.com/docs/#/displaying/format/
   formats: {
     dayOfTheWeek: 'dddd',
     month: 'MMMM',
     year: 'YYYY'
   },
-  dates: [
-    {
-      date: '07-17',
-      entry: 'Birthday'
-    }
-  ],
+
   // For more PDF options, see https://www.npmjs.com/package/html-pdf
   pdfOptions: {
     directory: path.resolve(__dirname),
