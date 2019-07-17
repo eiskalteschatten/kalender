@@ -14,8 +14,8 @@ export interface Day {
 export interface Week {
   days: Day[];
   weekNumber: number;
-  // months: string[];
-  // years: number[];
+  months: string[];
+  years: string[];
 }
 
 class Calendar {
@@ -35,6 +35,8 @@ class Calendar {
       momentWeek.locale(locale);
 
       const days: Day[] = [];
+      const months: string[] = [];
+      const years: string[] = [];
 
       const weekRange = moment.range(
         moment(momentWeek).locale(locale).day(1),
@@ -50,13 +52,23 @@ class Calendar {
         };
 
         days.push(day);
+
+        const month: string = momentDay.format('MMMM');
+        if (!months.includes(month)) {
+          months.push(month);
+        }
+
+        const year: string = momentDay.format('YYYY');
+        if (!years.includes(year)) {
+          years.push(year);
+        }
       }
 
       const week: Week = {
         days,
         weekNumber: momentWeek.week(),
-        // months: ,
-        // years: momentWeek.years()
+        months,
+        years
       };
 
       this.weeks.push(week);
