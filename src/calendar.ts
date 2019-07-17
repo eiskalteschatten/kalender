@@ -6,7 +6,7 @@ const moment = extendMoment(Moment);
 
 export interface Day {
   date: number;
-  dayOfWeek: string;
+  dayOfTheWeek: string;
   holiday?: string;
   entries?: string[];
 }
@@ -48,17 +48,17 @@ class Calendar {
 
         const day: Day = {
           date: momentDay.date(),
-          dayOfWeek: momentDay.format('dddd')
+          dayOfTheWeek: momentDay.format(config.formats.dayOfTheWeek)
         };
 
         days.push(day);
 
-        const month: string = momentDay.format('MMMM');
+        const month: string = momentDay.format(config.formats.month);
         if (!months.includes(month)) {
           months.push(month);
         }
 
-        const year: string = momentDay.format('YYYY');
+        const year: string = momentDay.format(config.formats.year);
         if (!years.includes(year)) {
           years.push(year);
         }
