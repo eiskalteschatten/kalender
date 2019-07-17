@@ -2,6 +2,7 @@ import * as os from 'os';
 import * as fs from 'fs';
 import * as nunjucks from 'nunjucks';
 import * as path from 'path';
+import * as mkdirp from 'mkdirp';
 
 class Renderer {
   nunjucksEnv: nunjucks.Environment;
@@ -12,7 +13,8 @@ class Renderer {
       autoescape: true
     });
 
-    this.writePath = path.resolve(os.tmpdir());
+    this.writePath = path.resolve(os.tmpdir(), 'kalendar');
+    mkdirp.sync(this.writePath);
   }
 
   render(): void {

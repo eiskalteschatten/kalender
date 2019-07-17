@@ -20,8 +20,15 @@
     "url": "https://github.com/eiskalteschatten/kalender/issues"
   },
   "homepage": "https://github.com/eiskalteschatten/kalender#readme",
+  "dependencies": {
+    "html-pdf": "^2.2.0",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.24.0",
+    "nunjucks": "^3.2.0"
+  },
   "devDependencies": {
     "@types/html-pdf": "^2.1.2",
+    "@types/mkdirp": "^0.5.2",
     "@types/node": "^12.6.8",
     "@types/nunjucks": "^3.1.1",
     "@typescript-eslint/eslint-plugin": "^1.12.0",
@@ -34,10 +41,5 @@
     "hooks": {
       "pre-push": "npm run lint"
     }
-  },
-  "dependencies": {
-    "html-pdf": "^2.2.0",
-    "moment": "^2.24.0",
-    "nunjucks": "^3.2.0"
   }
 }
