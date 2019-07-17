@@ -31,7 +31,7 @@ class Calendar {
 
     const yearRange = moment.range(startDate, endDate);
 
-    for (let momentWeek of yearRange.by('week')) {
+    for (const momentWeek of yearRange.by('week')) {
       momentWeek.locale(locale);
 
       const days: Day[] = [];
@@ -41,7 +41,7 @@ class Calendar {
         moment(momentWeek).locale(locale).day(7),
       );
 
-      for (let momentDay of weekRange.by('day')) {
+      for (const momentDay of weekRange.by('day')) {
         momentDay.locale(locale);
 
         const day: Day = {
@@ -62,8 +62,6 @@ class Calendar {
 
       this.weeks.push(week);
     }
-
-    console.log(JSON.stringify(this.weeks));
   }
 
   getWeeks(): Week[] {
