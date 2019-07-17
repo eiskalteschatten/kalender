@@ -63,3 +63,5 @@ typings/
 *.code-workspace
 
 dist
+
+config.js
