@@ -1,5 +1,7 @@
+import Calendar from './calendar';
 import Renderer from './renderer';
 
-const renderer = new Renderer();
+const calendar = new Calendar();
 
+const renderer = new Renderer();
 renderer.render();

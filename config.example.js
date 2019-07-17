@@ -1,10 +1,12 @@
 const path = require('path');
 
 module.exports = {
-  locale: 'en',
+  locale: 'en-GB',
+  startDate: '2020-01-01',
+  endDate: '2020-12-31',
   dates: [
     {
-      date: '2019-07-17',
+      date: '07-17',
       entry: 'Birthday'
     }
   ],

@@ -9,7 +9,7 @@ class Renderer {
   writePath: string;
 
   constructor() {
-    this.nunjucksEnv = nunjucks.configure(path.resolve(__dirname, '..', 'src', 'templates'), {
+    this.nunjucksEnv = nunjucks.configure(path.resolve(__dirname, '..', '..', 'src', 'templates'), {
       autoescape: true
     });
 
