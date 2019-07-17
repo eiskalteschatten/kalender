@@ -1,8 +1,7 @@
-import Calendar from './calendar';
+import calendar from './calendar';
 import Renderer from './renderer';
 
-const calendar = new Calendar();
-console.log(JSON.stringify(calendar.getWeeks()));
+console.log(JSON.stringify(calendar));
 
 const renderer = new Renderer();
 renderer.render();

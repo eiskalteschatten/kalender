@@ -18,66 +18,58 @@ export interface Week {
   years: string[];
 }
 
-class Calendar {
-  private weeks: Week[] = [];
+const calendar: Week[] = [];
 
-  constructor() {
-    const locale = config.locale;
-    const configuredStartDate = moment(config.startDate);
-    const startDate = moment(configuredStartDate).locale(locale).startOf('week');
+const locale = config.locale;
+const configuredStartDate = moment(config.startDate);
+const startDate = moment(configuredStartDate).locale(locale).startOf('week');
 
-    const configuredEndDate = moment(config.endDate);
-    const endDate = moment(configuredEndDate).locale(locale).endOf('week');
+const configuredEndDate = moment(config.endDate);
+const endDate = moment(configuredEndDate).locale(locale).endOf('week');
 
-    const yearRange = moment.range(startDate, endDate);
+const yearRange = moment.range(startDate, endDate);
 
-    for (const momentWeek of yearRange.by('week')) {
-      momentWeek.locale(locale);
+for (const momentWeek of yearRange.by('week')) {
+  momentWeek.locale(locale);
 
-      const days: Day[] = [];
-      const months: string[] = [];
-      const years: string[] = [];
+  const days: Day[] = [];
+  const months: string[] = [];
+  const years: string[] = [];
 
-      const weekRange = moment.range(
-        moment(momentWeek).locale(locale).day(1),
-        moment(momentWeek).locale(locale).day(7),
-      );
+  const weekRange = moment.range(
+    moment(momentWeek).locale(locale).day(1),
+    moment(momentWeek).locale(locale).day(7),
+  );
 
-      for (const momentDay of weekRange.by('day')) {
-        momentDay.locale(locale);
+  for (const momentDay of weekRange.by('day')) {
+    momentDay.locale(locale);
 
-        const day: Day = {
-          date: momentDay.date(),
-          dayOfTheWeek: momentDay.format(config.formats.dayOfTheWeek)
-        };
+    const day: Day = {
+      date: momentDay.date(),
+      dayOfTheWeek: momentDay.format(config.formats.dayOfTheWeek)
+    };
 
-        days.push(day);
+    days.push(day);
 
-        const month: string = momentDay.format(config.formats.month);
-        if (!months.includes(month)) {
-          months.push(month);
-        }
+    const month: string = momentDay.format(config.formats.month);
+    if (!months.includes(month)) {
+      months.push(month);
+    }
 
-        const year: string = momentDay.format(config.formats.year);
-        if (!years.includes(year)) {
-          years.push(year);
-        }
-      }
-
-      const week: Week = {
-        days,
-        weekNumber: momentWeek.week(),
-        months,
-        years
-      };
-
-      this.weeks.push(week);
+    const year: string = momentDay.format(config.formats.year);
+    if (!years.includes(year)) {
+      years.push(year);
     }
   }
 
-  getWeeks(): Week[] {
-    return this.weeks;
-  }
+  const week: Week = {
+    days,
+    weekNumber: momentWeek.week(),
+    months,
+    years
+  };
+
+  calendar.push(week);
 }
 
-export default Calendar;
+export default calendar;
