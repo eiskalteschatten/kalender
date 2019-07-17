@@ -52,7 +52,6 @@ class Calendar {
         days.push(day);
       }
 
-
       const week: Week = {
         days,
         weekNumber: momentWeek.week(),
