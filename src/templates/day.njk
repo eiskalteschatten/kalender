@@ -1,6 +1,11 @@
 <tr class="day-row">
   <td class="day left">
     <div class="date">{{ leftWeek.days[i].date }}</div>
+    <div class="entries">
+      {% for entry in leftWeek.days[i].entries %}
+        <div class="entry">{{ entry }}</div>
+      {% endfor %}
+    </div>
   </td>
   <td class="weekday-cell">
     <div class="weekday">
@@ -9,5 +14,10 @@
   </td>
   <td class="day right">
     <div class="date">{{ rightWeek.days[i].date }}</div>
+    <div class="entries">
+      {% for entry in rightWeek.days[i].entries %}
+        <div class="entry">{{ entry }}</div>
+      {% endfor %}
+    </div>
   </td>
 </tr>
