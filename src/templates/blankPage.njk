@@ -1,0 +1,22 @@
+{% extends 'base.njk' %}
+
+{% block css %}
+  <style>
+    .page-number {
+      position: absolute;
+      bottom: 10px;
+
+      {% if pageNumber % 2 !== 0 %}
+        left: 10px;
+      {% else %}
+        right: 10px;
+      {% endif %}
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+  <div class="page-number">
+    {{ pageNumber }}
+  </div>
+{% endblock %}

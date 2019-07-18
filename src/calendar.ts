@@ -1,7 +1,7 @@
-import * as config from '../config';
 import * as Moment from 'moment';
 import { extendMoment } from 'moment-range';
 
+import * as config from '../config';
 import * as holidays from './holidays';
 
 const moment = extendMoment(Moment);
