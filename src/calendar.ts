@@ -29,7 +29,12 @@ const startDate = moment(configuredStartDate).locale(locale).startOf('week');
 const configuredEndDate = moment(config.endDate);
 const endDate = moment(configuredEndDate).locale(locale).endOf('week');
 
-const yearRange = moment.range(startDate, endDate);
+let yearRange = moment.range(startDate, endDate);
+
+if (Array.from(yearRange.by('week')).length % 2 !== 0) {
+  const oneWeekLater = moment(endDate).add(1, 'weeks').endOf('week');
+  yearRange = moment.range(startDate, oneWeekLater);
+}
 
 for (const momentWeek of yearRange.by('week')) {
   momentWeek.locale(locale);

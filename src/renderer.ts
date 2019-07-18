@@ -23,30 +23,29 @@ class Renderer {
     let pageNumber = 1;
     let twoWeeksIterator = 0;
     const twoWeeks: Week[][] = [];
-    twoWeeks[twoWeeksIterator] = [];
 
     calendar.forEach((week: Week, i: number): void => {
+      if (!twoWeeks[twoWeeksIterator]) {
+        twoWeeks[twoWeeksIterator] = [];
+      }
+
       twoWeeks[twoWeeksIterator].push(week);
+
       if (i % 2 !== 0) {
         twoWeeksIterator++;
-        twoWeeks[twoWeeksIterator] = [];
       }
     });
 
     for (const weeks of twoWeeks) {
-      const months = weeks[1]
-        ? new Set([
-          ...weeks[0].months,
-          ...weeks[1].months
-        ])
-        : new Set(weeks[0].months);
+      const months = new Set([
+        ...weeks[0].months,
+        ...weeks[1].months
+      ]);
 
-      const years = weeks[1]
-        ? new Set([
-          ...weeks[0].years,
-          ...weeks[1].years
-        ])
-        : new Set(weeks[0].years);
+      const years = new Set([
+        ...weeks[0].years,
+        ...weeks[1].years
+      ]);
 
       const monthsYears = {
         months: Array.from(months),
