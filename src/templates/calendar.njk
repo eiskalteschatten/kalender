@@ -15,7 +15,9 @@
     }
 
     .week-numbers th {
-      padding: 0 10px 10px 10px;
+      padding: 0 10px 5px 10px;
+      color: #6d6d6d;
+      font-size: 10px;
     }
 
     .day-row td {
@@ -28,9 +30,13 @@
       width: 50%;
     }
 
+    .day .date {
+      font-size: 10px;
+    }
+
     .day .entries {
       position: absolute;
-      opacity: .65;
+      color: #8c8c8c;
       width: 100%;
     }
 
@@ -47,10 +53,11 @@
 
     .day .entry {
       display: inline-block;
+      font-size: 8px;
     }
 
     .day.left .entry {
-      margin-right: 15px;
+      margin-right: 5px;
     }
 
     .day.right .date {
@@ -66,13 +73,13 @@
     }
 
     .day.right .entry {
-      margin-left: 15px;
+      margin-left: 5px;
     }
 
     .day .holiday {
-      margin-top: 10px;
+      margin-top: 5px;
       width: 100%;
-      font-size: .9em;
+      font-size: 7px;
     }
 
     .weekday-cell {
@@ -84,14 +91,16 @@
       text-transform: uppercase;
       width: 1px;
       word-wrap: break-word;
-      font-family: monospace;
-      font-size: 1.4em;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14px;
     }
 
     .page-number {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
+      left: 8px;
+    }
+
+    .bottom-margin {
+      height: 15px;
     }
   </style>
 {% endblock %}
@@ -120,6 +129,9 @@
       {% for i in range(0, 7) %}
         {% include "day.njk" %}
       {% endfor %}
+      <tr>
+        <td class="bottom-margin" colspan="3"></td>
+      </tr>
     </tbody>
   </table>
 
