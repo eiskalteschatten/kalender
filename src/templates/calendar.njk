@@ -63,10 +63,13 @@
     <thead>
       <tr>
         <th colspan="3" class="months-years">
-          {% for month in months %}
-            {{ month }}
+          {% for month in monthsYears.months %}
+            {% if loop.index0 > 0 %}
+              &mdash;
+            {% endif %}
+
+            {{ month }} {{ monthsYears.years[loop.index0] }}
           {% endfor %}
-          September 2020
         </th>
       </tr>
       <tr class="week-numbers">

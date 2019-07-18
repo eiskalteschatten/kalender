@@ -35,26 +35,28 @@ class Renderer {
 
     for (const weeks of twoWeeks) {
       const months = weeks[1]
-        ? [
+        ? new Set([
           ...weeks[0].months,
           ...weeks[1].months
-        ]
-        : weeks[0].months;
+        ])
+        : new Set(weeks[0].months);
 
       const years = weeks[1]
-        ? [
+        ? new Set([
           ...weeks[0].years,
           ...weeks[1].years
-        ]
-        : weeks[0].years;
+        ])
+        : new Set(weeks[0].years);
 
-      // TODO: remove duplicate months and years
+      const monthsYears = {
+        months: Array.from(months),
+        years: Array.from(years)
+      };
 
       const renderedCalendar = this.nunjucksEnv.render('calendar.njk', {
         leftWeek: weeks[0],
         rightWeek: weeks[1],
-        months,
-        years,
+        monthsYears,
         pageNumber
       });
       fs.writeFileSync(path.resolve(this.writePath, `calendar${pageNumber}.html`), renderedCalendar);
