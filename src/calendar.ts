@@ -2,6 +2,8 @@ import * as config from '../config';
 import * as Moment from 'moment';
 import { extendMoment } from 'moment-range';
 
+import * as holidays from './holidays';
+
 const moment = extendMoment(Moment);
 
 export interface Day {
@@ -52,10 +54,12 @@ for (const momentWeek of yearRange.by('week')) {
     momentDay.locale(locale);
 
     const entries = predefinedDates[momentDay.format('MM-DD')];
+    const holiday = holidays.isHoliday(momentDay.toDate());
 
     const day: Day = {
       date: momentDay.date(),
       dayOfTheWeek: momentDay.format(config.formats.dayOfTheWeek),
+      holiday: holiday ? holiday.name : '',
       entries
     };
 

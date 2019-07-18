@@ -20,12 +20,18 @@
 
     .day-row td {
       border-top: 1px solid #000000;
-      width: 50%;
     }
 
     .day {
       position: relative;
       padding: 10px;
+      width: 50%;
+    }
+
+    .day .entries {
+      position: absolute;
+      opacity: .65;
+      width: 100%;
     }
 
     .day.left .date {
@@ -34,22 +40,39 @@
       left: 10px;
     }
 
+    .day.left .entries {
+      bottom: 10px;
+      left: 10px;
+    }
+
+    .day .entry {
+      display: inline-block;
+    }
+
+    .day.left .entry {
+      margin-right: 15px;
+    }
+
     .day.right .date {
       position: absolute;
       top: 10px;
       right: 10px;
     }
 
-    .day .entries {
-      position: absolute;
+    .day.right .entries {
       bottom: 10px;
-      left: 10px;
-      opacity: .65;
+      right: 10px;
+      text-align: right;
     }
 
-    .day .entry {
-      display: inline-block;
-      margin-right: 15px;
+    .day.right .entry {
+      margin-left: 15px;
+    }
+
+    .day .holiday {
+      margin-top: 10px;
+      width: 100%;
+      font-size: .9em;
     }
 
     .weekday-cell {

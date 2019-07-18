@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/eiskalteschatten/kalender#readme",
   "dependencies": {
+    "date-holidays": "^1.4.1",
     "html-pdf": "^2.2.0",
     "mkdirp": "^0.5.1",
     "moment": "^2.24.0",

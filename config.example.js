@@ -6,6 +6,13 @@ module.exports = {
   endDate: '2020-12-31',
   blankPages: 150,
 
+  // For all options, see https://www.npmjs.com/package/date-holidays
+  holidays: {
+    country: 'DE',
+    state: 'BY',
+    region: ''
+  },
+
   dates: {
     '07-17': [
       'Kalender\'s Birthday'

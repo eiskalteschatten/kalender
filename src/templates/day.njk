@@ -5,6 +5,10 @@
       {% for entry in leftWeek.days[i].entries %}
         <div class="entry">{{ entry }}</div>
       {% endfor %}
+
+      {% if leftWeek.days[i].holiday %}
+        <div class="holiday">{{ leftWeek.days[i].holiday }}</div>
+      {% endif %}
     </div>
   </td>
   <td class="weekday-cell">
@@ -18,6 +22,10 @@
       {% for entry in rightWeek.days[i].entries %}
         <div class="entry">{{ entry }}</div>
       {% endfor %}
+
+      {% if rightWeek.days[i].holiday %}
+        <div class="holiday">{{ rightWeek.days[i].holiday }}</div>
+      {% endif %}
     </div>
   </td>
 </tr>
