@@ -3,9 +3,11 @@ import * as fs from 'fs';
 import * as nunjucks from 'nunjucks';
 import * as path from 'path';
 import * as mkdirp from 'mkdirp';
-import * as pdf from 'html-pdf';4
+import * as pdf from 'html-pdf';
+import * as mergePdf from 'easy-pdf-merge';
 
 import * as config from '../config';
+import Spinner from './spinner';
 import calendar, { Week } from './calendar';
 
 class Renderer {
@@ -32,10 +34,13 @@ class Renderer {
 
   render(): void {
     this.renderHtml();
-    // this.renderPdf();
+    this.renderPdf();
   }
 
   renderHtml(): void {
+    const spinner = Spinner('Rendering HTML files...');
+    spinner.start();
+
     let pageNumber = 1;
     let twoWeeksIterator = 0;
     const twoWeeks: Week[][] = [];
@@ -98,22 +103,53 @@ class Renderer {
       this.htmlFilePaths.push(blankPagePath);
     }
 
-    console.log(this.htmlFilePaths);
+    spinner.stop();
   }
 
-  renderPdf() {
-    let spreadNumber = 1;
+  async renderPdf(): Promise<void> {
+    let spinner = Spinner('Rendering PDF files (this may take a while)...');
+    spinner.start();
+
+    let pageNumber = 1;
 
     for (const htmlFilePath of this.htmlFilePaths) {
-      const pdfPath = path.resolve(this.pdfWritePath, `spread${spreadNumber}.pdf`);
-
-      pdf.create(htmlFilePath, config.pdfOptions as any).toFile(pdfPath, function(err, res) {
-        if (err) return console.log(err);
-        console.log(res); // { filename: '/app/businesscard.pdf' }
-      });
-
-      spreadNumber++;
+      const html = fs.readFileSync(htmlFilePath, 'utf8');
+      const pdfPath = path.resolve(this.pdfWritePath, `page${pageNumber}.pdf`);
+      await this.createPdf(html, pdfPath);
+      pageNumber++;
+      this.pdfFilePaths.push(pdfPath);
     }
+
+    spinner.stop();
+
+    spinner = Spinner('Combining PDF files...');
+    spinner.start();
+
+    mergePdf(this.pdfFilePaths, config.savePdfPath, (error: any): void => {
+      spinner.stop();
+
+      if (error) {
+        console.error(error);
+        return;
+      }
+
+      console.log('\n\nThe PDF was created at', config.savePdfPath);
+    });
+  }
+
+  private createPdf(html: string, pdfPath: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      pdf.create(html, config.pdfOptions as any).toFile(pdfPath, (error, result): void => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(result);
+      });
+    }).catch(error => {
+      console.error(error);
+    });
   }
 }
 
