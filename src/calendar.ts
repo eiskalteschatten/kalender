@@ -21,6 +21,8 @@ export interface Week {
 const calendar: Week[] = [];
 
 const locale = config.locale;
+const predefinedDates = config.dates;
+
 const configuredStartDate = moment(config.startDate);
 const startDate = moment(configuredStartDate).locale(locale).startOf('week');
 
@@ -44,9 +46,12 @@ for (const momentWeek of yearRange.by('week')) {
   for (const momentDay of weekRange.by('day')) {
     momentDay.locale(locale);
 
+    const entries = predefinedDates[momentDay.format('MM-DD')];
+
     const day: Day = {
       date: momentDay.date(),
-      dayOfTheWeek: momentDay.format(config.formats.dayOfTheWeek)
+      dayOfTheWeek: momentDay.format(config.formats.dayOfTheWeek),
+      entries
     };
 
     days.push(day);

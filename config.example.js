@@ -10,8 +10,8 @@ module.exports = {
     '07-17': [
       'Kalender\'s Birthday'
     ],
-    '02-20': [
-      'Mom\' Birthday',
+    '12-31': [
+      'Dad\'s Birthday',
       'Some other event'
     ]
   },
