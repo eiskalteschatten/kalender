@@ -18,7 +18,7 @@ module.exports = {
 
   // For more options, see https://momentjs.com/docs/#/displaying/format/
   formats: {
-    dayOfTheWeek: 'dddd',
+    dayOfTheWeek: 'ddd',
     month: 'MMMM',
     year: 'YYYY'
   },

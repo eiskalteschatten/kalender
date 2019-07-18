@@ -45,6 +45,7 @@
     }
 
     .weekday {
+      text-transform: uppercase;
       width: 1px;
       word-wrap: break-word;
     }
@@ -62,27 +63,26 @@
     <thead>
       <tr>
         <th colspan="3" class="months-years">
+          {% for month in months %}
+            {{ month }}
+          {% endfor %}
           September 2020
         </th>
       </tr>
       <tr class="week-numbers">
-        <th class="align-left">23</th>
+        <th class="align-left">{{ leftWeek.weekNumber }}</th>
         <th></th>
-        <th class="align-right">24</th>
+        <th class="align-right">{{ rightWeek.weekNumber }}</th>
       </tr>
     </thead>
     <tbody>
-      {% include "day.njk" %}
-      {% include "day.njk" %}
-      {% include "day.njk" %}
-      {% include "day.njk" %}
-      {% include "day.njk" %}
-      {% include "day.njk" %}
-      {% include "day.njk" %}
+      {% for i in range(0, 6) %}
+        {% include "day.njk" %}
+      {% endfor %}
     </tbody>
   </table>
 
   <div class="page-number">
-    20
+    {{ pageNumber }}
   </div>
 {% endblock %}
