@@ -8,7 +8,11 @@ A project that generates custom templates for planners
 
 ## Instructions
 
-To use the project, you first need to install its dependencies, build it, then run it. To do so, run the following in the project's root directory:
+To use the project, you first need to configure it, install its dependencies, build it, then run it. To do so, run the following in the project's root directory:
+
+### Configure
+
+The first thing to do is to copy the `config.example.js` file and rename it to `config.js`. There you will configure the script.
 
 ### Install
 
