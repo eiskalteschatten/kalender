@@ -138,7 +138,7 @@ class Renderer {
   }
 
   private createPdf(html: string, pdfPath: string): Promise<any> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject): void => {
       pdf.create(html, config.pdfOptions as any).toFile(pdfPath, (error, result): void => {
         if (error) {
           reject(error);
@@ -147,7 +147,7 @@ class Renderer {
 
         resolve(result);
       });
-    }).catch(error => {
+    }).catch((error: any): void => {
       console.error(error);
     });
   }
