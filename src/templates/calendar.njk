@@ -50,7 +50,9 @@
     }
 
     .page-number {
-      height: 40px;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
     }
   </style>
 {% endblock %}
@@ -77,11 +79,10 @@
       {% include "day.njk" %}
       {% include "day.njk" %}
       {% include "day.njk" %}
-      <tr>
-        <td colspan="3" class="page-number">
-          20
-        </td>
-      </tr>
     </tbody>
   </table>
+
+  <div class="page-number">
+    20
+  </div>
 {% endblock %}

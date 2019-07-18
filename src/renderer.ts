@@ -25,6 +25,7 @@ class Renderer {
     fs.writeFileSync(path.resolve(this.writePath, 'rightside.html'), renderedRightside);
 
     console.log(path.resolve(this.writePath, 'calendar.html'));
+    console.log(path.resolve(this.writePath, 'rightside.html'));
   }
 }
 

@@ -1,7 +1,17 @@
 {% extends 'base.njk' %}
 
-{% block body %}
-  <div>
+{% block css %}
+  <style>
+    .page-number {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+  </style>
+{% endblock %}
 
+{% block body %}
+  <div class="page-number">
+    21
   </div>
 {% endblock %}
