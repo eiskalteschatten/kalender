@@ -4,6 +4,7 @@ module.exports = {
   locale: 'en-GB',
   startDate: '2020-01-01',
   endDate: '2020-12-31',
+  blankPages: 150,
 
   dates: {
     '07-17': [
