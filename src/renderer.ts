@@ -25,7 +25,7 @@ class Renderer {
     const twoWeeks: Week[][] = [];
     twoWeeks[twoWeeksIterator] = [];
 
-    calendar.forEach((week: Week, i: number) => {
+    calendar.forEach((week: Week, i: number): void => {
       twoWeeks[twoWeeksIterator].push(week);
       if (i % 2 !== 0) {
         twoWeeksIterator++;
@@ -41,7 +41,7 @@ class Renderer {
         ]
         : weeks[0].months;
 
-        const years = weeks[1]
+      const years = weeks[1]
         ? [
           ...weeks[0].years,
           ...weeks[1].years
