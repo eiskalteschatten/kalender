@@ -15,6 +15,7 @@ module.exports = {
   },
 
   dates: {
+    // month-day
     '07-17': [
       'Kalender\'s Birthday'
     ],
