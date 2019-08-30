@@ -1,14 +1,29 @@
 module.exports = {
   // month-day
   '07-17': [
-    'Kalender\'s Birthday'
+    {
+      title: 'Kalender\'s Birthday',
+      type: 'birthday'
+    }
   ],
   '01-06': [
-    'Billy\'s Birthday',
-    'Some other event'
+    {
+      title: 'Billy\'s Birthday',
+      type: 'birthday'
+    },
+    {
+      title: 'Some other event',
+      type: 'practice'
+    }
   ],
   '12-31': [
-    'Dad\'s Birthday',
-    'Some other event'
+    {
+      title: 'Dad\'s Birthday',
+      type: 'birthday'
+    },
+    {
+      title: 'Some other event',
+      type: 'practice'
+    }
   ]
 };

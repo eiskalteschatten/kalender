@@ -14,6 +14,11 @@ module.exports = {
     region: ''
   },
 
+  dateColors: {
+    birthday: '#0074D9',
+    practice: '#2ECC40'
+  },
+
   // For more options, see https://momentjs.com/docs/#/displaying/format/
   formats: {
     dayOfTheWeek: 'dddd',

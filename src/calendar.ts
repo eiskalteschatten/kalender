@@ -7,11 +7,16 @@ import * as holidays from './holidays';
 
 const moment = extendMoment(Moment);
 
+export interface Entry {
+  title: string;
+  type: string;
+}
+
 export interface Day {
   date: number;
   dayOfTheWeek: string;
   holiday?: string;
-  entries?: string[];
+  entries?: Entry[];
 }
 
 export interface Week {

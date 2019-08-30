@@ -76,6 +76,7 @@ class Renderer {
       const renderedCalendar = this.nunjucksEnv.render('calendar.njk', {
         leftWeek: weeks[0],
         rightWeek: weeks[1],
+        dateColors: config.dateColors,
         monthsYears,
         pageNumber
       });
