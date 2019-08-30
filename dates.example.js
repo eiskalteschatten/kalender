@@ -12,8 +12,7 @@ module.exports = {
       type: 'birthday'
     },
     {
-      title: 'Some other event',
-      type: 'practice'
+      title: 'Some other event'
     }
   ],
   '12-31': [

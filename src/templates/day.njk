@@ -3,7 +3,12 @@
     <div class="date">{{ leftWeek.days[i].date }}</div>
     <div class="entries">
       {% for entry in leftWeek.days[i].entries %}
-        <div class="entry" style="color: {{ dateColors[entry.type] }}">{{ entry.title }}</div>
+        <div
+          class="entry"
+          {% if dateColors[entry.type] %}style="color: {{ dateColors[entry.type] }}"{% endif %}
+        >
+          {{ entry.title }}
+        </div>
       {% endfor %}
 
       {% if leftWeek.days[i].holiday %}
@@ -20,7 +25,12 @@
     <div class="date">{{ rightWeek.days[i].date }}</div>
     <div class="entries">
       {% for entry in rightWeek.days[i].entries %}
-        <div class="entry" style="color: {{ dateColors[entry.type] }}">{{ entry.title }}</div>
+        <div
+          class="entry"
+          {% if dateColors[entry.type] %}style="color: {{ dateColors[entry.type] }}"{% endif %}
+        >
+          {{ entry.title }}
+        </div>
       {% endfor %}
 
       {% if rightWeek.days[i].holiday %}
