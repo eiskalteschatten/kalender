@@ -2,6 +2,7 @@ import * as Moment from 'moment';
 import { extendMoment } from 'moment-range';
 
 import * as config from '../config';
+import * as dates from '../dates';
 import * as holidays from './holidays';
 
 const moment = extendMoment(Moment);
@@ -23,7 +24,6 @@ export interface Week {
 const calendar: Week[] = [];
 
 const locale = config.locale;
-const predefinedDates = config.dates;
 
 const configuredStartDate = moment(config.startDate);
 const startDate = moment(configuredStartDate).locale(locale).startOf('week');
@@ -53,7 +53,7 @@ for (const momentWeek of yearRange.by('week')) {
   for (const momentDay of weekRange.by('day')) {
     momentDay.locale(locale);
 
-    const entries = predefinedDates[momentDay.format('MM-DD')];
+    const entries = dates[momentDay.format('MM-DD')];
     const holiday = holidays.isHoliday(momentDay.toDate());
 
     const day: Day = {
