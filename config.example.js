@@ -7,6 +7,9 @@ module.exports = {
   blankPages: 200,
   savePdfPath: path.resolve(__dirname, '..', 'calendar.pdf'),
 
+  // 'js' or 'csv'
+  datesFileType: 'js',
+
   // For all options, see https://www.npmjs.com/package/date-holidays
   holidays: {
     country: 'DE',
@@ -23,7 +26,8 @@ module.exports = {
   formats: {
     dayOfTheWeek: 'dddd',
     month: 'MMMM',
-    year: 'YYYY'
+    year: 'YYYY',
+    csvFormat: 'DD.MM.YYYY'
   },
 
   // For more PDF options, see https://www.npmjs.com/package/html-pdf

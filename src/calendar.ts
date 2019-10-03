@@ -2,8 +2,8 @@ import * as Moment from 'moment';
 import { extendMoment } from 'moment-range';
 
 import * as config from '../config';
-import * as dates from '../dates';
 import * as holidays from './holidays';
+import dates from './dates';
 
 const moment = extendMoment(Moment);
 

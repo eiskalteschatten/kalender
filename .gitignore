@@ -65,5 +65,7 @@ typings/
 dist
 
 config.js
-dates.js
 calendar.pdf
+
+dates.js
+dates.csv
