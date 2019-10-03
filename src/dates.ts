@@ -14,8 +14,8 @@ if (config.datesFileType === 'js') {
 else if (config.datesFileType === 'csv') {
   const csvPath = path.resolve(__dirname, '../../dates.csv');
   const csvStr = fs.readFileSync(csvPath, 'utf8');
-  const csvLines = csvStr.split("\n");
-  const headers = csvLines.shift().split(',');
+  const csvLines = csvStr.split('\n');
+  csvLines.shift();
 
   csvLines.forEach((line: string): void => {
     const parts = line.split(',');
