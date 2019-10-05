@@ -13,7 +13,9 @@
 {% endblock %}
 
 {% block body %}
-  <div class="page-number">
-    {{ pageNumber }}
-  </div>
+  {% if pageNumber %}
+    <div class="page-number">
+      {{ pageNumber }}
+    </div>
+  {% endif %}
 {% endblock %}

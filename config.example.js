@@ -5,6 +5,7 @@ module.exports = {
   startDate: '2020-01-01',
   endDate: '2020-12-31',
   blankPages: 200,
+  firstPageBlank: true,
   savePdfPath: path.resolve(__dirname, '..', 'calendar.pdf'),
 
   // 'js' or 'csv'
