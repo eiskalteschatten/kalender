@@ -58,7 +58,7 @@ class Renderer {
     });
 
     if (config.firstPageBlank) {
-      const blankPagePath = path.resolve(this.htmlWritePath, `blankFirstPage.html`);
+      const blankPagePath = path.resolve(this.htmlWritePath, 'blankFirstPage.html');
       const renderedBlankPage = this.nunjucksEnv.render('blankPage.njk');
       fs.writeFileSync(blankPagePath, renderedBlankPage);
       this.htmlFilePaths.push(blankPagePath);
