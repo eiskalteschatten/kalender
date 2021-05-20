@@ -24,7 +24,7 @@
     "cli-spinner": "^0.2.10",
     "date-holidays": "^1.4.3",
     "easy-pdf-merge": "^0.2.2",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "mkdirp": "^0.5.1",
     "moment": "^2.24.0",
     "moment-range": "^4.0.2",
